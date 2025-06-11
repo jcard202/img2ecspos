@@ -111,18 +111,3 @@ hprt_qr_node2/
 * **Printer not printing?** Check the IP and power connection.
 * **Image not showing correctly?** Use simple, high-contrast images.
 * **BMP not working?** Only PNG and JPG are supported for conversion and print.
-
----
-
-## 📜 License
-
-MIT License
-
----
-
-## 🙏 Acknowledgements
-
-* [`escpos`](https://www.npmjs.com/package/escpos)
-* [`qrcode`](https://www.npmjs.com/package/qrcode)
-* [`sharp`](https://www.npmjs.com/package/sharp)
-
