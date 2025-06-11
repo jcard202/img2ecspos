@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "escpos": "^3.0.0-alpha.6",
+    "escpos-network": "",
+    "qrcode": "^1.5.1",
+    "sharp": "^0.33.0"
+  }
+}
+
