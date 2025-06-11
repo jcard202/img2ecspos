@@ -51,7 +51,9 @@ async function prepareImageBuffer() {
 
       device.open(function (err) {
         if (err) {
-          return console.error('❌ Printer connection error:', err);
+          console.error('❌ Printer connection error:', err);
+          cleanupTempFile();
+          return;
         }
 
         printer
@@ -60,14 +62,29 @@ async function prepareImageBuffer() {
           .then(() => {
             printer.feed(3).cut().close();
             console.log('✅ Printed successfully');
+            cleanupTempFile();
           })
           .catch(err => {
             console.error('❌ Print error:', err);
+            cleanupTempFile();
           });
       });
     });
   } catch (err) {
     console.error('❌ Error:', err);
+    cleanupTempFile();
   }
 })();
+
+function cleanupTempFile() {
+  if (fs.existsSync(TEMP_FILE)) {
+    fs.unlink(TEMP_FILE, err => {
+      if (err) {
+        console.error('⚠️ Failed to delete temp file:', err);
+      } else {
+        console.log('🧹 Temp file deleted');
+      }
+    });
+  }
+}
 
